@@ -11,7 +11,7 @@ class RoutingManager extends Middleware{
     private $controllers = array();
     
     public function __construct( $options ){
-        $this->cacheDir = dirname(__FILE__).'\\..\\..\\'.$options['cache'];
+        $this->cacheDir = dirname(__FILE__).'/../../'.$options['cache'];
         $this->controllers = $options['controllers_directory'];
         $this->controller_namespace = $options['controllers_namespace'];
     }    
@@ -27,8 +27,8 @@ class RoutingManager extends Middleware{
     }
 
     private function loadMapping(){
-        if( !file_exists( $this->cacheDir.'\mapping.php' ) ){
-            var_dump( $this->cacheDir.'\mapping.php');
+        if( !file_exists( $this->cacheDir.'/mapping.php' ) ){
+            var_dump( $this->cacheDir.'/mapping.php');
             throw new \Exception("RoutingManager No Mapping File Found");
         }
 
@@ -67,7 +67,7 @@ class RoutingManager extends Middleware{
                 echo $line."\r\n";
             }
 
-            echo "\r\nTotal routes: \033[32m" . count ( $routes ) . "\033[37m\r\n\r\n";
+            echo "\r\nTotal routes: \033[32m" . count ( $routes ) . "\033[30m\r\n\r\n";
         }
         
 

@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block content %}
+	<h1>{{ title }}</h1>
+	<article>{{ content }}</article>
+{% endblock %}

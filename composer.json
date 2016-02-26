@@ -1,6 +1,6 @@
 {
     "name": "psykosoldi3r/slimdoctrine",
-    "description": "Slim Doctrine demo",
+    "description": "Slim Twig Demo",
     "require": {
         "slim/slim": "^2.6",
         "doctrine/orm": "^2.5",

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Routing\Controller;
+use App\Core\TwigFactory;
 
 class PostsController extends Controller {
 
@@ -15,8 +16,14 @@ class PostsController extends Controller {
 		$em = $this->getApp()->getEntityManager();
 		$post = $em->find('App\\Entity\\Post', $id );
 
-		echo "<h1>".$post->getTitle()."</h1>";
-		echo "<article>".$post->getContent()."</article>";
+		$twig = TwigFactory::create();
+		$template = $twig->loadTemplate('single.twig');
+
+		$this->getApp()->renderTemplate( $template, array(
+			'title' => $post->getTitle(),
+			'content' => $post->getContent()
+		) );
+
 	}
 
 }

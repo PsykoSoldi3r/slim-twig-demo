@@ -20,7 +20,7 @@ class App extends Slim {
 
         $this->routingManager = new RoutingManager(
             array(
-                "cache" => "\cache",
+                "cache" => "/cache",
                 "controllers_directory" => dirname(__FILE__)."/Controllers",
                 "controllers_namespace" => "App\\Controllers"
             )
@@ -72,6 +72,10 @@ class App extends Slim {
         $this->response()->header('Content-Type', 'application/json');
         $this->response()->body( json_encode( $data ) );
         $this->response()->status( $code );
+    }
+
+    public function renderTemplate( $template, $data = array() ){
+        echo $template->render( $data );
     }
 
     public function redirect( $url, $code = 200 ){
