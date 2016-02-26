@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block title %}Homepage{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block content %}
+		{% for post in posts %}
+			<a href="/{{ post.id }}"><div class='post'>({{ post.id }}) {{ post.title }}</div></a>
+		{% else %}
+			<div>There are no posts found</div>
+		{% endfor %}
+{% endblock %}

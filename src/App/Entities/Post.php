@@ -30,6 +30,18 @@ class Post {
 	 */
 	protected $content;
 
+	/**
+	 * @var string
+	 * @Column(name="status", columnDefinition="ENUM('concept', 'waiting_for_review','published')",options={"default" = "concept"})
+	 */
+	protected $status = 'concept';
+
+	/**
+	 * @var datetime
+	 * @Column(name="publish_date", type="datetime")
+	 */
+	protected $publish_date;
+
 	public function getId(){
 		return $this->id;
 	}
@@ -48,5 +60,9 @@ class Post {
 
 	public function setContent( $content ){
 		$this->content = $content;
+	}
+
+	public function getPublishDate(){
+		return $this->publish_date;
 	}
 }
